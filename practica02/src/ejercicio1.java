@@ -8,7 +8,7 @@ public class ejercicio1 {
         int[] arrayInt = new int[10];
 
         // Pedimos los valores por teclado
-        System.out.println("Introduce 10 valores enteros:");
+        System.out.println("Introduce valores:");
         for (int i = 0; i < arrayInt.length; i++) {
             System.out.print("Valor " + i + ": ");
             arrayInt[i] = sc.nextInt();
