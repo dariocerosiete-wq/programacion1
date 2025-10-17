@@ -25,8 +25,6 @@ public class ejercicio6 {
                 ceros++;
             }
         }
-
-        // Mostramos los resultados
         System.out.println("Cantidad de números positivos: " + positivos);
         System.out.println("Cantidad de números negativos: " + negativos);
         System.out.println("Cantidad de ceros: " + ceros);
