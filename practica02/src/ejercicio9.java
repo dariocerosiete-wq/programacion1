@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ejercicio9 {
     public static void main(String[] args) {
         //Pedir los 10 números y los guardes por un array
-        //Recorrer por el array para encontrar el máximo y mínimo
+        //Recorrer el array para encontrar el máximo y mínimo
             Scanner teclado = new Scanner(System.in);
             int[] numeros = new int[10];
 
