@@ -9,7 +9,7 @@ public class ejercicio12 {
         };
 
         Scanner teclado = new Scanner(System.in);
-        System.out.print("Escribe solo el número del DNI: ");
+        System.out.print("Escribe solo el numero de su DNI: ");
         int numeroDNI = teclado.nextInt();
 
         int resto = numeroDNI % 23;
