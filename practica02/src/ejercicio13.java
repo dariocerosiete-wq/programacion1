@@ -13,10 +13,10 @@ public class ejercicio13 {
             int numero = 0;
 
             while (numero >= 0) {
-                numero = s.nextInt(); // leer número
+                numero = s.nextInt();
 
                 if (numero >= 0) {
-                    lista.add(numero); // guardar en la lista
+                    lista.add(numero);
                 }
             }
             //Muestre por pantalla todos los números de la lista y la suma total de los mismos.
@@ -24,8 +24,8 @@ public class ejercicio13 {
             int suma = 0;
 
             for (int n : lista) {
-                System.out.println(n); // mostrar número
-                suma = suma + n;       // sumar
+                System.out.println(n);
+                suma = suma + n;
             }
 
             System.out.println("La suma total es: " + suma);
