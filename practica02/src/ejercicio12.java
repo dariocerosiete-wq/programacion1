@@ -16,7 +16,5 @@ public class ejercicio12 {
 
 
         System.out.println("La letra del DNI es: " + letras[resto]);
-
-        sc.close();
     }
 }
