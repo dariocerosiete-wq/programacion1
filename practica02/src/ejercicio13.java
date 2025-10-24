@@ -1,3 +1,7 @@
+//Cree una lista de enteros (ArrayList<Integer>).
+//Pida números por teclado hasta que el usuario introduzca un número negativo (ese no se añade).
+//Muestre por pantalla todos los números de la lista y la suma total de los mismos.
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
