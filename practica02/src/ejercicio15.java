@@ -1,7 +1,7 @@
 //Crea una lista Array list <Integer>
 //Pedir usuario 10 numeros enteros
 //Lista para evitar números duplicados
-// Ordenar de menor a mayor
+//Ordenar de menor a mayor
 //Mostrar lista de ordenados y sin duplicar
 
 import java.util.ArrayList;
@@ -10,39 +10,55 @@ import java.util.Scanner;
 public class ejercicio15 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arrayInt = new int[10];
-        //Crea una lista Array list <Integer>
-
         ArrayList<Integer> lista = new ArrayList<>();
-        //Pedir usuario 10 numeros enteros
 
-        System.out.println("Introduce valores enteros:");
-        for (int i = 0; i < arrayInt.length; i++) {
-            System.out.print("Valor " + i + ": ");
-            arrayInt[i] = sc.nextInt();
+        //Pedir 10 números al usuario
+        System.out.println("Introduce 10 números enteros:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            int num = sc.nextInt();
+            lista.add(num);
+        }
 
-            //Lista para evitar números duplicados
-            if (!lista.contains(arrayInt[i])) {
-                lista.add(arrayInt[i]);
+        //Lista para evitar números duplicados
+        ArrayList<Integer> sinDuplicados = new ArrayList<>();
+        for (int i = 0; i < lista.size(); i++) {
+            int actual = lista.get(i);
+            boolean yaExiste = false;
+
+            for (int j = 0; j < sinDuplicados.size(); j++) {
+                if (actual == sinDuplicados.get(j)) {
+                    yaExiste = true;
+                    break;
+                }
+            }
+
+            if (!yaExiste) {
+                sinDuplicados.add(actual);
             }
         }
 
-        // Ordenar de menor a mayor
 
-        for (int i = 0; i < lista.size(); i++) {
-            for (int j = i + 1; j < lista.size(); j++) {
-                if (lista.get(i) > lista.get(j)) {
-                    int temp = lista.get(i);
-                    lista.set(i, lista.get(j));
-                    lista.set(j, temp);
+        for (int i = 0; i < sinDuplicados.size(); i++) {
+            for (int j = i + 1; j < sinDuplicados.size(); j++) {
+                if (sinDuplicados.get(i) > sinDuplicados.get(j)) {
+                    // Ordenar de menor a mayor
+                    int temp = sinDuplicados.get(i);
+                    int menor = sinDuplicados.get(j);
+
+                    sinDuplicados.remove(i);
+                    sinDuplicados.add(i, menor);
+
+                    sinDuplicados.remove(j);
+                    sinDuplicados.add(j, temp);
                 }
             }
         }
-        //Mostrar lista de ordenados y sin duplicar
 
-        System.out.println("Lista sin duplicados y ordenada:");
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
+        //Mostrar lista de ordenados y sin duplicar
+        System.out.println("Lista ordenada sin duplicados:");
+        for (int i = 0; i < sinDuplicados.size(); i++) {
+            System.out.println(sinDuplicados.get(i));
         }
     }
 }
