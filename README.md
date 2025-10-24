@@ -2,7 +2,7 @@
 
 Operaciones con Arrays
 
-1. Fundamentos de arrays
+#1. Fundamentos de arrays
 
 Ejercicio 1
 
@@ -24,7 +24,7 @@ Ejercicio 5
 
 Crea un array de números donde le indicamos por teclado el tamaño del array, rellenaremos el array con números aleatorios entre 0 y 9, al final muestra por pantalla el valor de cada posición y la suma de todos los valores.
 
-2. Procesamiento con condiciones
+#2. Procesamiento con condiciones
 
 Ejercicio 6
 
@@ -38,7 +38,7 @@ Ejercicio 8
 
 Programa Java para leer la altura de N personas y calcular la altura media. Calcular cuántas personas tienen una altura superior a la media y cuántas tienen una altura inferior a la media. El valor de N se pide por teclado y debe ser entero positivo.
 
-3. Arrays combinados y bidimensionales
+#3. Arrays combinados y bidimensionales
 
 Ejercicio 9 - Máximo, mínimo y posiciones
 
@@ -64,37 +64,37 @@ Ejercicio 12
 
 En España cada persona está identificada con un Documento Nacional de Identidad (DNI) en el que figura un número y una letra, por ejemplo 56999545W. Realiza un programa donde le pidas al usuario SOLO el número del dni y el programa te devuelva la letra. Para calcular la letra solo tienes que dividir el número del DNI entre 23, el resto de esta división se corresponde con la posición de la letra en el abecedario. Utiliza un array para guardar CADA letra del abecedario. 
 
-4. Transición a listas dinámicas (ArrayList)
+#4. Transición a listas dinámicas (ArrayList)
 
 Ejercicio 13 – Lista de números y suma total
 
 Crea un programa que:
 
-Cree una lista de enteros (ArrayList<Integer>).
+- Cree una lista de enteros (ArrayList<Integer>).
 
-Pida números por teclado hasta que el usuario introduzca un número negativo (ese no se añade).
+- Pida números por teclado hasta que el usuario introduzca un número negativo (ese no se añade).
 
-Muestre por pantalla todos los números de la lista y la suma total de los mismos.
+- Muestre por pantalla todos los números de la lista y la suma total de los mismos.
 
 Ejercicio 14– Lista de nombres y búsqueda
 
 Crea un programa que:
 
-Cree una lista de Strings (ArrayList<String>).
+- Cree una lista de Strings (ArrayList<String>).
 
-Pida al usuario nombres por teclado hasta que introduzca la palabra "fin".
+- Pida al usuario nombres por teclado hasta que introduzca la palabra "fin".
 
-Luego pida un nombre a buscar y diga si está en la lista o no, mostrando también en qué posición se encuentra si existe.
+- Luego pida un nombre a buscar y diga si está en la lista o no, mostrando también en qué posición se encuentra si existe.
 
 Ejercicio 15 – Ordenar y eliminar duplicados
 
 Crea un programa que:
 
-Cree una lista de enteros (ArrayList<Integer>).
+- Cree una lista de enteros (ArrayList<Integer>).
 
-Pida al usuario 10 números enteros y los añada a la lista.
+- Pida al usuario 10 números enteros y los añada a la lista.
 
-Elimine los valores duplicados manteniendo solo el primero que apareció.
+- Elimine los valores duplicados manteniendo solo el primero que apareció.
 
-Ordene la lista de menor a mayor y la muestre por pantalla.
+- Ordene la lista de menor a mayor y la muestre por pantalla.
 
