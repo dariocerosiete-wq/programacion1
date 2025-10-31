@@ -1,30 +1,44 @@
 public class ejercicio1 {
     public static void main(String[] args) {
-        // Define un array de números tipo double de 3 filas por 7 columnas con nombre doub
-        double[][] doub = {
-                //asigna los valores según la siguiente tabla
-                {0, 30, 2, 0, 0, 0, 5},
-                {75, 0, 0, 0, 0, 0, 0},
-                {0, 0,-2 , 0, 9, 0, 11}
+
+        Double[][] doub = {
+                {0.0, 30.0, 2.0, null, null, 5.0},
+                {75.0, null, null, null, 0.0, null},
+                {null, -2.0, 9.0, null, null, 11.0}
         };
 
-        // Imprimir encabezado
-        System.out.print("Array num  ");
+        System.out.print("| Array num ");
         for (int j = 0; j < 6; j++) {
-            System.out.printf("Columna %-3d ", j);
+            System.out.printf("| Columna %-3d ", j);
         }
-        System.out.println();
+        System.out.println("|");
+        //LINEA DENTRO
+        System.out.print("|-----------");
+        for (int j = 0; j < 6; j++) {
+            System.out.print("|-------------");
+        }
+        System.out.println("|");
 
-        // Imprimir filas
+        // FILAS BORDES
         for (int i = 0; i < doub.length; i++) {
-            System.out.printf("Fila %-6d", i);
-            for (int j = 0; j < doub[i].length; j++) {
-                System.out.printf("%8.0f ", doub[i][j]);
+            System.out.printf("| Fila %-4d ", i);
+            for (int j = 0; j < 6; j++) {
+                if (doub[i][j] != null) {
+                    System.out.printf("| %-11.0f ", doub[i][j]);
+                } else {
+                    System.out.printf("| %-11s ", ""); // Espacio en blanco
+                }
             }
-            System.out.println();
+            System.out.println("|");
+            System.out.print("|-----------");
+            for (int j = 0; j < 6; j++) {
+                System.out.print("|-------------");
+            }
+            System.out.println("|");
         }
     }
 }
+
 
 
 
