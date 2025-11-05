@@ -15,6 +15,7 @@ public class ejercicio5 {
         int minFila = 0, minCol = 0;
 
         // Calcular sumas, máximo y mínimo
+        System.out.println("Generando 60 números aleatorios del 0-1000:");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 10; j++) {
                 int valor = rand.nextInt(1001); // 0 a 1000
@@ -56,12 +57,12 @@ public class ejercicio5 {
         System.out.println("\nNúmero máximo: " + max + " en posición [" + maxFila + "][" + maxCol + "]");
         System.out.println("Número mínimo: " + min + " en posición [" + minFila + "][" + minCol + "]");
         System.out.println("\nSuma total: " + sumaTotal);
-
+        //Suma Fila
         System.out.println("\nSuma por fila:");
         for (int i = 0; i < 6; i++) {
             System.out.println("Fila " + i + ": " + sumaFilas[i]);
         }
-
+        //Suma Columna
         System.out.println("\nSuma por columna:");
         for (int j = 0; j < 10; j++) {
             System.out.println("Columna " + j + ": " + sumaColumnas[j]);
