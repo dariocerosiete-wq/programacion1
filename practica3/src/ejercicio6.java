@@ -1,71 +1,69 @@
-import java.util.Random;
 
 public class ejercicio6 {
-        public static void main(String[] args) {
-            Random rand = new Random();
+    public static void main(String[] args) {
+        int filas = 3;
+        int columnas = 7;
+        int[][] matriz = new int[filas][columnas];
+        boolean[] usados = new boolean[21];
+        int[] sumaFilas = new int[filas];
+        int[] sumaColumnas = new int[columnas];
+        int sumaTotal = 0;
+        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+        int maxFila = 0, maxCol = 0, minFila = 0, minCol = 0;
 
-            int[][] numeros = new int[6][10];
-            int[] sumaFilas = new int[6];
-            int[] sumaColumnas = new int[10];
-            int sumaTotal = 0;
+        //Generamos los números aleatorios del 20-40 sin que se repitan
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                int num;
+                do {
+                    num = 20 + (int)(Math.random() * 21);
+                } while (usados[num - 20]);
 
-            int max = Integer.MIN_VALUE;
-            int min = Integer.MAX_VALUE;
-            int maxFila = 0, maxCol = 0;
-            int minFila = 0, minCol = 0;
+                usados[num - 20] = true;
+                matriz[i][j] = num;
 
-            // Calcular sumas, máximo y mínimo
-            System.out.println("Generando 20 números aleatorios del 20-40:");
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 10; j++) {
-                    int valor = rand.nextInt(20-41);
-                    numeros[i][j] = valor;
+                sumaFilas[i] += num;
+                sumaColumnas[j] += num;
+                sumaTotal += num;
 
-                    sumaFilas[i] += valor;
-                    sumaColumnas[j] += valor;
-                    sumaTotal += valor;
-
-                    if (valor > max) {
-                        max = valor;
-                        maxFila = i;
-                        maxCol = j;
-                    }
-
-                    if (valor < min) {
-                        min = valor;
-                        minFila = i;
-                        minCol = j;
-                    }
+                if (num > max) {
+                    max = num;
+                    maxFila = i;
+                    maxCol = j;
                 }
-            }
-
-            // Mostrar tabla con bordes
-            System.out.println("-----------------------------------------------------------------------");
-            for (int i = 0; i < 6; i++) {
-                System.out.print("|");
-                for (int j = 0; j < 10; j++) {
-                    System.out.printf(" %4d |", numeros[i][j]);
+                if (num < min) {
+                    min = num;
+                    minFila = i;
+                    minCol = j;
                 }
-                System.out.println();
-                if (i < 5) {
-                    System.out.println("-----------------------------------------------------------------------");
-                }
-            }
-            System.out.println("-----------------------------------------------------------------------");
-
-            // Resultado
-            System.out.println("\nNúmero máximo: " + max + " en posición [" + maxFila + "][" + maxCol + "]");
-            System.out.println("Número mínimo: " + min + " en posición [" + minFila + "][" + minCol + "]");
-            System.out.println("\nSuma total: " + sumaTotal);
-            //Suma Fila
-            System.out.println("\nSuma por fila:");
-            for (int i = 0; i < 6; i++) {
-                System.out.println("Fila " + i + ": " + sumaFilas[i]);
-            }
-            //Suma Columna
-            System.out.println("\nSuma por columna:");
-            for (int j = 0; j < 10; j++) {
-                System.out.println("Columna " + j + ": " + sumaColumnas[j]);
             }
         }
+
+        // Mostrar tabla con bordes
+        System.out.println("-------------------------------------------------");
+        for (int i = 0; i < filas; i++) {
+            System.out.print("|");
+            for (int j = 0; j < columnas; j++) {
+                System.out.printf(" %4d |", matriz[i][j]);
+            }
+            System.out.println();
+            System.out.println("-------------------------------------------------");
+        }
+
+        // Mostrar resultados
+        System.out.println("\nNúmero máximo: " + max + " en [" + maxFila + "][" + maxCol + "]");
+        System.out.println("Número mínimo: " + min + " en [" + minFila + "][" + minCol + "]");
+        System.out.println("Suma total: " + sumaTotal);
+
+        System.out.println("\nSuma por fila:");
+        for (int i = 0; i < filas; i++) {
+            System.out.println("Fila " + i + ": " + sumaFilas[i]);
+        }
+
+        System.out.println("\nSuma por columna:");
+        for (int j = 0; j < columnas; j++) {
+            System.out.println("Columna " + j + ": " + sumaColumnas[j]);
+        }
     }
+}
+
