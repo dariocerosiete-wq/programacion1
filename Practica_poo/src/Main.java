@@ -23,7 +23,7 @@ public class Main {
         Usuario user = new Usuario("Adrian", "Romero Gonzalez", "11401", "C/Rodrigo de Granada", "adriunosiete@gmail.com", "04042007.dDd");
         Usuario user = new Usuario("Roberto", "Romero Paniagua", "11402", "C/Rodrigo de Mayo", "robertocerosiete@gmail.com", "04042007.ddd");
 
-        U
+        Usuario[]
 
     }
 }
