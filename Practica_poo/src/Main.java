@@ -23,10 +23,15 @@ public class Main {
         Usuario user2 = new Usuario("Adrian", "Romero Gonzalez", "11401", "C/Rodrigo de Granada", "adriunosiete@gmail.com", "04042007.dDd");
         Usuario user4 = new Usuario("Roberto", "Romero Paniagua", "11402", "C/Rodrigo de Mayo", "robertocerosiete@gmail.com", "04042007.ddd");
 
-        Usuario[]
+        Usuario[] usuarios = {user1, user2, user4};
+        for (int i = 0; i < usuarios.length; i++) {
+            System.out.println(usuarios[i].getNombre());
 
+
+        }
     }
 }
+
 
 
 
