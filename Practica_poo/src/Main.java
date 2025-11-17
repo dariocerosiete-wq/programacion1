@@ -24,6 +24,8 @@ public class Main {
         Usuario user4 = new Usuario("Roberto", "Romero Paniagua", "11402", "C/Rodrigo de Mayo", "robertocerosiete@gmail.com", "04042007.ddd");
 
         Usuario[] usuarios = {user1, user2, user4};
+        public static void validarRegistro()
+        validarRegistro(usuarios);
 
         for (int i = 0; i < usuarios.length; i++) {
             System.out.println(usuarios[i].getNombre());
