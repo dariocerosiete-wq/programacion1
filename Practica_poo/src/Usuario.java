@@ -47,10 +47,9 @@ public class Usuario {
     public  Boolean checkUsuario (String email, String contraseña){
         return this.getEmail().equals(email) && this.contraseña.equals(contraseña);
     }
-     public String validarRegistro(Usuario[] usuarios) {
-         return
+
      }
-     }
+
 
 
 
