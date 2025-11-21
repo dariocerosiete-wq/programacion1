@@ -18,14 +18,16 @@ public class Main {
 
         System.out.println(user.checkUsuario("dario@.com", "04042007.d"));
 
-        //Parte 2
+        //6. Creación y Almacenamiento de Usuarios
         Usuario user1 = new Usuario("Alejandro", "Romero Cuadrado", "11400", "C/Rodrigo de Cádiz", "alesietesiete@gmail.com", "04042007.dD");
         Usuario user2 = new Usuario("Adrian", "Romero Gonzalez", "11401", "C/Rodrigo de Granada", "adriunosiete@gmail.com", "04042007.dDd");
         Usuario user4 = new Usuario("Roberto", "Romero Paniagua", "11402", "C/Rodrigo de Mayo", "robertocerosiete@gmail.com", "04042007.ddd");
 
         Usuario[] usuarios = {user1, user2, user4};
-        public static void validarRegistro()
-        validarRegistro(usuarios);
+        private static validarRegistro {
+            System.out.println("validarRegistro");
+        }
+
 
         for (int i = 0; i < usuarios.length; i++) {
             System.out.println(usuarios[i].getNombre());
