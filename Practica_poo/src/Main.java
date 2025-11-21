@@ -25,15 +25,24 @@ public class Main {
 
         Usuario[] usuarios = {user1, user2, user4};
         validarRegistro(usuarios);
-        user.1
+
     }
+
     public static void validarRegistro(Usuario[] usuarios())
-        for (int i = 0; i < usuarios.length; i++) {
-            System.out.println(usuarios[i].getNombre());
+
+    {
+
+        {
+            for (int i = 0; i < usuarios.length; i++) {
+                System.out.println(usuarios[i].getNombre());
 
 
+            }
         }
     }
+}
+
+
 
 
 
