@@ -23,24 +23,16 @@ public class Main {
         Usuario user2 = new Usuario("Adrian", "Romero Gonzalez", "11401", "C/Rodrigo de Granada", "adriunosiete@gmail.com", "04042007.dDd");
         Usuario user4 = new Usuario("Roberto", "Romero Paniagua", "11402", "C/Rodrigo de Mayo", "robertocerosiete@gmail.com", "04042007.ddd");
 
-        Usuario[] usuarios = {user1, user2, user4};
-        validarRegistro(usuarios);
-
-    }
-
-    public static void validarRegistro(Usuario[] usuarios())
-
-    {
-
-        {
-            for (int i = 0; i < usuarios.length; i++) {
-                System.out.println(usuarios[i].getNombre());
-
-
+        public static void validarRegistro(Usuario[] usuario){
+            for (int i = 0; i < usuario.length; i++) {
+                if (usuario[i].getCodigopostal().startsWith("28")) {
+                    System.out.println("Codigo postal Valido");
+                } else {
+                    System.out.println("Código Postal no valido");
+                }
             }
         }
     }
-}
 
 
 
