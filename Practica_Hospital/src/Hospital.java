@@ -1,38 +1,53 @@
 import java.util.ArrayList;
 
 public class Hospital {
+
+    //atributos
     private String nombre;
     private String cif;
+    private Direccion d;
     private ArrayList<Area> lista;
 
-    public Hospital(String n, String C) {
+    //contructores
+    public Hospital (String n, String cif, Direccion d, ArrayList<Area> areas){
         this.nombre = n;
-        this.cif = C;
-        this.lista = new ArrayList<>();
-
-
+        this.cif = cif;
+        this.d = d;
+        this.lista = new ArrayList<Area>();
     }
 
+
+    //metodos get
     public String getNombre() {
-        return this.nombre;
-
-    }
-
-    public void setNombre(String nuevoNombre) {
-        this.nombre = nuevoNombre;
-
+        return nombre;
     }
 
     public String getCif() {
-        return this.cif;
-
+        return cif;
     }
 
-    public void setCif(String nuevoCif) {
-        this.cif = nuevoCif;
-
+    public Direccion getD() {
+        return d;
     }
 
+    public ArrayList<Area> getAreas() {
+        return areas;
+    }
+
+    //metodos set
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
+    }
+
+    public void setD(Direccion d) {
+        this.d = d;
+    }
+
+    public void setAreas(ArrayList<Area> lista) {
+        this.areas = lista;
+    }
 }
-
-
