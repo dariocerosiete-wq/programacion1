@@ -10,4 +10,3 @@ public class Main {
         System.out.println("Sueldo neto: ");
     }
 }
-g

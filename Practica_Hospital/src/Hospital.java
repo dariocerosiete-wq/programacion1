@@ -16,7 +16,7 @@ public class Hospital {
         this.area = new ArrayList<Area>();
     }
 
-g
+
     //metodos get
     public String getNombre() {
         return nombre;
