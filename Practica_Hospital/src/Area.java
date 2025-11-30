@@ -1,67 +1,81 @@
 public class Area {
-    public class Area {
-        //atributos
-        private String nombre;
-        private Integer identificador;
-        private Integer planta;
-        private Hospital hospital;
-        private Integer numMedicos;
+    private String nombre;
+    private String identificador;
+    private int planta;
+    private Hospital hospital; // Areas pertenece a hospital
+    private int numMedicos;
 
-        //contructores
-        public Area (String n, Integer i, Integer p, Hospital h){
-            this.nombre = n;
-            this.identificador = i;
-            this.planta = p;
-            this.hospital = h;
-            this.numMedicos = 0;
+    public Area ( String nombre,String identificador,int planta, Hospital hospital) {
 
+        this.nombre= nombre;
+        this.identificador= identificador;
+        this.planta= planta;
+        this.hospital= hospital;
+        this.numMedicos= 0;
+    }
+
+    //GET
+
+    public String getNombre() {
+        return nombre;
+    }
+    public String getIdentificador() {
+        return identificador;
+    }
+    public Hospital getHospital() {
+        return hospital;
+    }
+    public int getPlanta() {
+        return planta;
+    }
+    public int getNumMedicos() {
+        return numMedicos;
+    }
+
+    //SET
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setPlanta(int planta) {
+        this.planta = planta;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    //AUMENTAR MEDICOS
+    public void aumentarMedicos() {
+        this.numMedicos++;
+    }
+
+    //DECREMENTAR MEDICOS
+    public void decrementarMedicos() {
+        this.numMedicos--;
+    }
+    //COMPARAR MEDICOS CON OTRAS AREAS
+    public String compararMedicos(Areas otraArea) {
+        if (this.numMedicos > otraArea.getNumMedicos()) {
+            return this.nombre + " tiene más médicos";
+        } else if (this.numMedicos < otraArea.getNumMedicos()) {
+            return otraArea.getNombre() + " tiene más médicos";
+        } else {
+            return "Ambas áreas tienen el mismo número de médicos";
         }
+    }
 
-        //metodos get
-        public String getNombre() {
-            return nombre;
-        }
 
-        public Integer getIdentificador() {
-            return identificador;
-        }
-
-        public Integer getPlanta() {
-            return planta;
-        }
-
-        public Hospital getHospital() {
-            return hospital;
-        }
-
-        public Integer getNumMedicos() {
-            return numMedicos;
-        }
-
-        //metodos set
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
-
-        public void setIdentificador(Integer identificador) {
-            this.identificador = identificador;
-        }
-
-        public void setPlanta(Integer planta) {
-            this.planta = planta;
-        }
-
-        public void setHospital(Hospital hospital) {
-            this.hospital = hospital;
-        }
-
-        public void setNumMedicos(Integer numMedicos) {
-            this.numMedicos = numMedicos;
-        }
-
-        //funcion contador medicos
-        public void sumaMedicos(){
-            this.numMedicos ++;
-        }
+    //CAPACIDAD RESTANTE
+    public int calcularCapacidadRestante(int capacidadMaxima) {
+        return capacidadMaxima - this.numMedicos;
+    }
+    public String toString() {
+        return this.nombre + " (ID: " + this.identificador + ") - Planta " + this.planta + " - Médicos: " + this.numMedicos;
     }
 }

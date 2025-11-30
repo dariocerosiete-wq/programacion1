@@ -1,56 +1,61 @@
 public class Direccion {
     private String calle;
-    private String numero;
-    private String codigoPostal;
+    private int numero;
+    private int cp;
     private String localidad;
     private String provincia;
 
-    public Direccion(String c, String n, String cp, String l, String p) {
-        this.calle = c;
-        this.numero = n;
-        this.codigoPostal = cp;
-        this.localidad = l;
-        this.provincia = p;
+    public Direccion(String calle, int numero, int cp, String localidad, String provincia){
+        this.calle=calle;
+        this.numero=numero;
+        this.cp=cp;
+        this.localidad=localidad;
+        this.provincia=provincia;
+    }
+    //METODOS_GET
 
+    public String getCalle() {
+        return calle;
     }
 
-    public String getcalle() {
-        return this.calle;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setcalle(String nuevocalle) {
-        this.calle = nuevocalle;
+    public int getCp() {
+        return cp;
     }
 
-    public String getnumero() {
-        return this.numero;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setnumero(String nuevonumero) {
-        this.numero = nuevonumero;
+    public String getProvincia() {
+        return provincia;
     }
 
-    public String getcodigoPostal() {
-        return this.codigoPostal;
+    //METODOS_SET
+
+    public void setCalle(String calle) {
+        this.calle = calle;
     }
 
-    public void setcodigoPostal(String nuvocodigoPostal) {
-        this.codigoPostal = nuvocodigoPostal;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public String getlocalidad() {
-        return this.localidad;
+    public void setCp(int cp) {
+        this.cp = cp;
     }
 
-    public void setlocalidad(String nuevolocalidad) {
-        this.localidad = nuevolocalidad;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
-    public String getprovincia() {
-        return this.provincia;
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
-
-    public void setprovincia(String nuevoprovincia) {
-        this.provincia = nuevoprovincia;
+    public String toString() {
+        return this.calle + " " + this.numero + ", " + this.cp + " " + this.localidad + " (" + this.provincia + ")";
     }
 }

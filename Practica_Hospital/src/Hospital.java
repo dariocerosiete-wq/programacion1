@@ -1,53 +1,100 @@
 import java.util.ArrayList;
 
 public class Hospital {
-
-    //atributos
-    private String nombre;
+    private String Nombre;
     private String cif;
-    private Direccion d;
+    private Direccion direccion;
     private ArrayList<Area> area;
 
-    //contructores
-    public Hospital (String n, String cif, Direccion d, ArrayList<Area> areas){
-        this.nombre = n;
-        this.cif = cif;
-        this.d = d;
-        this.area = new ArrayList<Area>();
+    public Hospital (String Nombre,String cif, Direccion direccion){
+        this.Nombre= Nombre;
+        this.cif= cif;
+        this.area= new ArrayList<>();
+        this.direccion= direccion;
+    }
+    //METODOS_GET
+
+    public ArrayList<Area> getArea() {
+        return area;
     }
 
-
-    //metodos get
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getCif() {
         return cif;
     }
 
-    public Direccion getD() {
-        return d;
+    public Direccion getDireccion() {
+        return direccion;
+    }
+    //METODOS_SET
+
+    public void setAreas(ArrayList<Area> area) {
+        this.area = area;
     }
 
-    public ArrayList<Area> getAreas() {
-        return area;
-    }
-
-    //metodos set
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
 
     public void setCif(String cif) {
         this.cif = cif;
     }
 
-    public void setD(Direccion d) {
-        this.d = d;
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 
-    public void setAreas(ArrayList<Area> area) {
-        this.area = area;
+    //ADD AGREGAR AREAS
+    public void agregarArea(Area a){
+        this.areas.add(a);
+    }
+    //NUMERO TOTAL DE MEDICOS
+    public int getNumeroTotalMedicos() {
+        int total = 0;
+        for (Areas area : this.areas){
+            total += area.getNumMedicos();
+        }
+        return total;
+    }
+    //PROPORCION DE MEDICOS
+    public double getProporcionMedicosArea(String idArea) {
+
+        int totalMedicos = 0;
+        int medicosArea = 0;
+
+
+        for (int i = 0; i < areas.size(); i++) {
+
+            Areas a = areas.get(i);
+            totalMedicos += a.getNumMedicos();
+
+            // FOR 2 ANIDADO → buscar coincidencia del ID
+            if (a.getIdentificador().equalsIgnoreCase(idArea)) {
+                medicosArea = a.getNumMedicos();
+            }
+        }
+
+        // Evitar división entre 0
+        if (totalMedicos == 0) return 0;
+
+        return (double) medicosArea / totalMedicos;
+    }
+    //EXISTE AREA POR ID
+    public boolean existeArea(String idArea) {
+        return buscarArea(idArea) != null;
+    }
+    //AGREGAR BUSCAR AREA PARA LA PROPORCION Y LA EXISTENCIA DEL ID
+
+    public Areas buscarArea(String idArea) {
+        for (Areas area : areas) {
+            if (area.getIdentificador().equals(idArea)) return area;
+        }
+        return null;
+    }
+    public String toString() {
+        return this.Nombre + " (" + this.cif + ") - " + this.direccion;
     }
 }

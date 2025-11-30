@@ -1,111 +1,129 @@
-import java.time.LocalDate;
-import java.util.Scanner;
-
 public class Medico {
-    //atributos
-    private String dni;
     private String nombre;
-    private String sexo;
-    private Integer sueldoBruto;
-    private Integer fechaInicio;
-    private Area area;
+    private Areas area;
+    private String DNI;
+    private int edad;
+    private String Sexo;
+    private int fecha;
+    private double sueldoBruto;
+    private Areas nuevaArea;
 
-    //contructores
-    public Medico(String d, String n, String s, Integer sB, Integer fI, Area a) {
-        this.dni = d;
-        this.nombre = n;
-        this.sexo = s;
-        this.sueldoBruto = sB;
-        this.fechaInicio = fI;
-        this.area = a;
-    }
+    public Medico(String nombre, Areas area, String DNI, int edad, String Sexo, int fecha, double sueldoBruto){
+        this.nombre=nombre;
+        this.area=area;
+        this.DNI=DNI;
+        this.edad=edad;
+        this.Sexo=Sexo;
+        this.fecha=fecha;
+        this.sueldoBruto=sueldoBruto;
 
-    //metodos get
-    public String getDni() {
-        return dni;
+        area.aumentarMedicos();
     }
+    //METODOS_GET
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public Integer getSueldoBruto() {
-        return sueldoBruto;
-    }
-
-    public Integer getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public Area getArea() {
+    public Areas getArea() {
         return area;
     }
 
-    //metodos set
-    public void setDni(String dni) {
-        this.dni = dni;
+    public String getDNI() {
+        return DNI;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getSexo() {
+        return Sexo;
+    }
+    public int getFecha_i() {
+        return fecha_i;
+    }
+
+    public double getSueldoBruto() {
+        return sueldoBruto;
+    }
+
+    public Areas getNuevaArea() {
+        return nuevaArea;
+    }
+
+    //MEDODOS_SET
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public void setSueldoBruto(Integer sueldoBruto) {
-        this.sueldoBruto = sueldoBruto;
-    }
-
-    public void setFechaInicio(Integer fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public void setArea(Area area) {
+    public void setArea(Areas area) {
         this.area = area;
     }
 
-    //metodo sueldo neto
-    public double calcularSueldo(double retencion) {
-        double sueldoNeto = sueldoBruto * (retencion / 100);
-        return sueldoNeto;
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
     }
 
-    //metodo antiguedad
-    public int getAniosAntiguedad() {
-        int antiguedad = 2025 - getFechaInicio();
-        return antiguedad;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    //metodos imnpuestos anuales
+    public void setSexo(String sexo) {
+        Sexo = sexo;
+    }
+
+    public void setFecha_i(int fecha_i) {
+        this.fecha_i = fecha_i;
+    }
+
+    public void setSueldoBruto(double sueldoBruto) {
+        this.sueldoBruto = sueldoBruto;
+    }
+
+    public void setNuevaArea(Areas nuevaArea) {
+        this.nuevaArea = nuevaArea;
+    }
+
+    //CALCULAR SUELDO NETO
+    public double calcularSueldoNeto(double retencion) {
+        return this.sueldoBruto - (this.sueldoBruto * retencion / 100);
+    }
+
+    //CALCULAR ANTIGUEDAD
+    public int getAniosAntiguedad(){
+        return 2025-this.fecha_i;
+    }
+
+    //CALCULAR IMPUESTOS ANUALES
     public double calcularImpuestosAnuales(double tasaImpositiva) {
-        double tasaImpuesto = this.sueldoBruto * tasaImpositiva;
-        return tasaImpositiva;
+        return this.sueldoBruto * (tasaImpositiva / 100);
     }
-
-    //metodo mayor de edad
-    public boolean esMayorDeEdad(int mayoriaDeEdad) {
-        return mayoriaDeEdad >= 18;
+    //COMPROBACIÓN DE EDAD
+    public boolean esMayorEdad(int MayoriaEdad){
+        return this.edad >= MayoriaEdad;
     }
-
-    //metodo aumento
-    public double proximoAumento(double porcentajeAumento, int aniosRequeridos) {
-        double resultado = this.sueldoBruto;
-        if (this.getAniosAntiguedad() >= aniosRequeridos) {
-            resultado = sueldoBruto + (sueldoBruto * (porcentajeAumento / 100));
+    //CALCULO DEL AUMENTO DEL SUELDO
+    public double proximoAumento(double porcentajeAumento, int aniosRequeridos){
+        if (getAniosAntiguedad() >= aniosRequeridos) {
+            return this.sueldoBruto + (this.sueldoBruto * porcentajeAumento / 100);
         }
-        return resultado;
+        return this.sueldoBruto;
+    }
+    //CAMBIAR AREAS
+    public void cambiarArea(Areas nuevaArea) {
+        if (this.area != null) {
+            this.area.decrementarMedicos();
+        }
+        nuevaArea.aumentarMedicos();
+        this.area = nuevaArea;
+    }
+    public String toString() {
+        return this.nombre + " (DNI: " + this.DNI + ") - Edad: " + this.edad + " - Sueldo: " + this.sueldoBruto + " - Área: " + (this.area != null ? this.area.getNombre() : "Sin Área");
     }
 
-    //metodo area
-    public Area cambiarArea(Area nuevaArea) {
-        return nuevaArea;
-    }
 }
 
 
