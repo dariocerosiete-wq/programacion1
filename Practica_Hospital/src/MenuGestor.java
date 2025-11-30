@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class MenuGestor {
     private ArrayList<Hospital> hospitales;
-    private ArrayList<Areas> areas;
+    private ArrayList<Area> area;
     private ArrayList<Medico> medicos;
     private ArrayList<Contrato> contratos;
 
 
-    public MenuGestor(ArrayList<Hospital> hospitales, ArrayList<Areas> areas,
+    public MenuGestor(ArrayList<Hospital> hospitales, ArrayList<Area> area,
                       ArrayList<Medico> medicos, ArrayList<Contrato> contratos) {
         this.hospitales = hospitales;
-        this.areas = areas;
+        this.areas = area;
         this.medicos = medicos;
         this.contratos = contratos;
     }
@@ -61,7 +61,7 @@ public class MenuGestor {
         } while (opcion != 0);
     }
 
-    // ----------------- CREAR -----------------
+    // CREACIÓN
 
     private static void crearHospital() {
         System.out.print("Nombre del hospital: ");
@@ -104,7 +104,7 @@ public class MenuGestor {
             return;
         }
 
-        Areas a = new Areas(nombre, id, planta, h);
+        Areas a = new Area(nombre, id, planta, h);
         h.agregarAreas(a);
         Main.areas.add(a);
 
