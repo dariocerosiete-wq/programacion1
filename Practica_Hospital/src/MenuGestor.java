@@ -11,7 +11,7 @@ public class MenuGestor {
     public MenuGestor(ArrayList<Hospital> hospitales, ArrayList<Area> area,
                       ArrayList<Medico> medicos, ArrayList<Contrato> contratos) {
         this.hospitales = hospitales;
-        this.areas = area;
+        this.area = area;
         this.medicos = medicos;
         this.contratos = contratos;
     }
@@ -104,8 +104,8 @@ public class MenuGestor {
             return;
         }
 
-        Areas a = new Area(nombre, id, planta, h);
-        h.agregarAreas(a);
+        Area a = new Area(nombre, id, planta, h);
+        h.agregarArea(a);
         Main.areas.add(a);
 
         System.out.println("Área creada correctamente.");
@@ -142,7 +142,7 @@ public class MenuGestor {
         }
         int indexArea = sc.nextInt();
         sc.nextLine();
-        Areas areaSeleccionada = Main.areas.get(indexArea);
+        Area areaSeleccionada = Main.areas.get(indexArea);
 
         // Crear médico
         Medico m = new Medico(nombre, areaSeleccionada, dni, edad, sexo, fecha_i, sueldo);
@@ -182,7 +182,7 @@ public class MenuGestor {
         } else if (op == 2) {
             System.out.print("ID nueva área: ");
             String id = sc.nextLine();
-            Areas nueva = Main.buscarArea(id);
+            Area nueva = Main.buscarArea(id);
             if (nueva != null) {
                 m.cambiarArea(nueva);
                 System.out.println("Área cambiada correctamente.");
@@ -272,7 +272,7 @@ public class MenuGestor {
     private static void capacidadArea() {
         System.out.print("ID área: ");
         String id = sc.nextLine();
-        Areas a = Main.buscarArea(id);
+        Area a = Main.buscarArea(id);
 
         if (a != null) {
             System.out.print("Capacidad máxima: ");
@@ -284,9 +284,9 @@ public class MenuGestor {
 
     private static void compararAreas() {
         System.out.print("ID Área 1: ");
-        Areas a1 = Main.buscarArea(sc.nextLine());
+        Area a1 = Main.buscarArea(sc.nextLine());
         System.out.print("ID Área 2: ");
-        Areas a2 = Main.buscarArea(sc.nextLine());
+        Area a2 = Main.buscarArea(sc.nextLine());
 
         if (a1 != null && a2 != null) {
             System.out.println("Comparación: " + a1.compararMedicos(a2));
