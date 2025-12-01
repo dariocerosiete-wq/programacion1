@@ -1,14 +1,14 @@
 public class Medico {
     private String nombre;
-    private Areas area;
+    private Area area;
     private String DNI;
     private int edad;
     private String Sexo;
     private int fecha;
     private double sueldoBruto;
-    private Areas nuevaArea;
+    private Area nuevaArea;
 
-    public Medico(String nombre, Areas area, String DNI, int edad, String Sexo, int fecha, double sueldoBruto){
+    public Medico(String nombre, Area area, String DNI, int edad, String Sexo, int fecha, double sueldoBruto){
         this.nombre=nombre;
         this.area=area;
         this.DNI=DNI;
@@ -25,7 +25,7 @@ public class Medico {
         return nombre;
     }
 
-    public Areas getArea() {
+    public Area getArea() {
         return area;
     }
 
@@ -41,14 +41,14 @@ public class Medico {
         return Sexo;
     }
     public int getFecha_i() {
-        return fecha_i;
+        return fecha;
     }
 
     public double getSueldoBruto() {
         return sueldoBruto;
     }
 
-    public Areas getNuevaArea() {
+    public Area getNuevaArea() {
         return nuevaArea;
     }
 
@@ -59,7 +59,7 @@ public class Medico {
         this.nombre = nombre;
     }
 
-    public void setArea(Areas area) {
+    public void setArea(Area area) {
         this.area = area;
     }
 
@@ -76,14 +76,14 @@ public class Medico {
     }
 
     public void setFecha_i(int fecha_i) {
-        this.fecha_i = fecha_i;
+        this.fecha = fecha_i;
     }
 
     public void setSueldoBruto(double sueldoBruto) {
         this.sueldoBruto = sueldoBruto;
     }
 
-    public void setNuevaArea(Areas nuevaArea) {
+    public void setNuevaArea(Area nuevaArea) {
         this.nuevaArea = nuevaArea;
     }
 
@@ -94,7 +94,7 @@ public class Medico {
 
     //CALCULAR ANTIGUEDAD
     public int getAniosAntiguedad(){
-        return 2025-this.fecha_i;
+        return 2025-this.fecha;
     }
 
     //CALCULAR IMPUESTOS ANUALES
@@ -113,7 +113,7 @@ public class Medico {
         return this.sueldoBruto;
     }
     //CAMBIAR AREAS
-    public void cambiarArea(Areas nuevaArea) {
+    public void cambiarArea(Area nuevaArea) {
         if (this.area != null) {
             this.area.decrementarMedicos();
         }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     //LISTAS
     static ArrayList<Hospital> hospitales = new ArrayList<>();
-    static ArrayList<Areas> areas = new ArrayList<>();
+    static ArrayList<Area> areas = new ArrayList<>();
     static ArrayList<Medico> medicos = new ArrayList<>();
     static ArrayList<Contrato> contratos = new ArrayList<>();
 
@@ -27,19 +27,19 @@ public class Main {
         hospitales.add(h1);
         hospitales.add(h2);
 
-        Areas a1 = new Areas("Cardiologia", "a1", 2, h1);
-        Areas a2 = new Areas("Pediatria", "a2", 1, h1);
-        Areas a3 = new Areas("Urgencias", "a3", 0, h2);
+        Area a1 = new Area("Cardiologia", "a1", 2, h1);
+        Area a2 = new Area("Pediatria", "a2", 1, h1);
+        Area a3 = new Area("Urgencias", "a3", 0, h2);
 
-        h1.agregarAreas(a1);
-        h1.agregarAreas(a2);
-        h2.agregarAreas(a3);
+        h1.agregarArea(a1);
+        h1.agregarArea(a2);
+        h2.agregarArea(a3);
 
         areas.add(a1);
         areas.add(a2);
         areas.add(a3);
 
-        Medico m1 = new Medico("Miguel", a1, "20502084A", 21, "Hombre", 21 - 1 - 2001, 3001.12);
+        Medico m1 = new Medico("Miguel",a1, "20502084A", 21, "Hombre", 21 - 1 - 2001, 3001.12);
         Medico m2 = new Medico("Dario", a2, "20602084I", 22, "Hombre", 21 - 1 - 1991, 2001.12);
         Medico m3 = new Medico("Oliva", a3, "20305040U", 24, "Hombre", 21 - 1 - 1991, 1001.12);
 
@@ -71,8 +71,8 @@ public class Main {
         return null;
     }
 
-    static Areas buscarArea(String id) {
-        for (Areas a : areas)
+    static Area buscarArea(String id) {
+        for (Area a : areas)
             if (a.getIdentificador().equals(id))
                 return a;
         return null;

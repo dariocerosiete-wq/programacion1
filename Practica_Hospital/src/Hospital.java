@@ -49,12 +49,12 @@ public class Hospital {
 
     //ADD AGREGAR AREAS
     public void agregarArea(Area a){
-        this.areas.add(a);
+        this.area.add(a);
     }
     //NUMERO TOTAL DE MEDICOS
     public int getNumeroTotalMedicos() {
         int total = 0;
-        for (Areas area : this.areas){
+        for (Area area : this.area){
             total += area.getNumMedicos();
         }
         return total;
@@ -66,9 +66,9 @@ public class Hospital {
         int medicosArea = 0;
 
 
-        for (int i = 0; i < areas.size(); i++) {
+        for (int i = 0; i < area.size(); i++) {
 
-            Areas a = areas.get(i);
+            Area a = area.get(i);
             totalMedicos += a.getNumMedicos();
 
             // FOR 2 ANIDADO → buscar coincidencia del ID
@@ -88,8 +88,8 @@ public class Hospital {
     }
     //AGREGAR BUSCAR AREA PARA LA PROPORCION Y LA EXISTENCIA DEL ID
 
-    public Areas buscarArea(String idArea) {
-        for (Areas area : areas) {
+    public Area buscarArea(String idArea) {
+        for (Area area : area) {
             if (area.getIdentificador().equals(idArea)) return area;
         }
         return null;

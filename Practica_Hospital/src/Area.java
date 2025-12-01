@@ -60,7 +60,7 @@ public class Area {
         this.numMedicos--;
     }
     //COMPARAR MEDICOS CON OTRAS AREAS
-    public String compararMedicos(Areas otraArea) {
+    public String compararMedicos(Area otraArea) {
         if (this.numMedicos > otraArea.getNumMedicos()) {
             return this.nombre + " tiene más médicos";
         } else if (this.numMedicos < otraArea.getNumMedicos()) {
