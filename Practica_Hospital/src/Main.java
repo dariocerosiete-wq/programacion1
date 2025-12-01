@@ -41,7 +41,7 @@ public class Main {
 
         Medico m1 = new Medico("Miguel",a1, "20502084A", 21, "Hombre", 21 - 1 - 2001, 3001.12);
         Medico m2 = new Medico("Dario", a2, "20602084I", 22, "Hombre", 21 - 1 - 1991, 2001.12);
-        Medico m3 = new Medico("Oliva", a3, "20305040U", 24, "Hombre", 21 - 1 - 1991, 1001.12);
+        Medico m3 = new Medico("Oliva", a3, "20305040U", 24, "Hombre", 21 - 1 - 19912, 1001.12);
 
         medicos.add(m1);
         medicos.add(m2);
