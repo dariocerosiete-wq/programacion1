@@ -72,7 +72,7 @@ public class Medico {
     }
 
     public void setSexo(String sexo) {
-        Sexo = sexo;
+        this.Sexo = sexo;
     }
 
     public void setFecha_i(int fecha_i) {
@@ -101,6 +101,7 @@ public class Medico {
     public double calcularImpuestosAnuales(double tasaImpositiva) {
         return this.sueldoBruto * (tasaImpositiva / 100);
     }
+
     //COMPROBACIÓN DE EDAD
     public boolean esMayorEdad(int MayoriaEdad){
         return this.edad >= MayoriaEdad;

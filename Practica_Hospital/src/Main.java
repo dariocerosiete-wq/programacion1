@@ -54,6 +54,7 @@ public class Main {
         contratos.add(c1);
         contratos.add(c2);
         contratos.add(c3);
+
     }
 
     // MENÚ
