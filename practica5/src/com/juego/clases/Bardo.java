@@ -3,13 +3,13 @@ package com.juego.clases;
 import com.juego.habilidades.Habilidad;
 //Atributos
 public class Bardo extends Clases {
-    private Integer fuerza;
-    private Integer inteligencia;
-    private Integer destreza;
-    private Integer vida;
+    private int fuerza;
+    private int inteligencia;
+    private int destreza;
+    private int vida;
     private Habilidad habilidad;
 //Constructor
-    public Bardo (Integer fuerza, Integer inteligencia, Integer destreza, Integer vida, Habilidad habilidad) {
+    public Bardo (int fuerza, int inteligencia, int destreza, int vida, Habilidad habilidad) {
         this.fuerza = fuerza;
         this.inteligencia = inteligencia;
         this.destreza = destreza;
