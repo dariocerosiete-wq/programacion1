@@ -1,20 +1,9 @@
 package com.juego.clases;
 
-import com.juego.habilidades.Habilidad;
-//Atributos
 public class Druida extends Clases {
-    private Integer fuerza;
-    private Integer inteligencia;
-    private Integer destreza;
-    private Integer vida;
-    private Habilidad habilidad;
-//Constructor
-    public Druida(Integer fuerza, Integer inteligencia, Integer destreza, Integer vida, Habilidad habilidad) {
-        this.fuerza = fuerza;
-        this.inteligencia = inteligencia;
-        this.destreza = destreza;
-        this.vida = vida;
-        this.habilidad = habilidad;
+    //Constructor
+    public Druida() {
+        super(3, 2, 2, 105, 105, 3, 3);
     }
 }
 
