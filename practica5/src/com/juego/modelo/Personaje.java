@@ -1,8 +1,7 @@
 package com.juego.modelo;
 import com.juego.clases.Clases;
-import com.juego.razas.Razas;
 //Clase
-public class Personaje implements Razas {
+public class Personaje {
     //Atributos
     private String nombre;
     private int fuerza;
@@ -13,11 +12,11 @@ public class Personaje implements Razas {
     private int velocidad;
     private int vidaMax;
     private Clases clases;
-    private Razas razas;
+
 
 //Contructor
 
-    public Personaje( String nombre, int fuerza, int inteligencia, int destreza, int defensa, int velocidad, int vidaMax, Clases clases, Razas razas) {
+    public Personaje( String nombre, int fuerza, int inteligencia, int destreza, int defensa, int velocidad, int vidaMax, Clases clases) {
         this.nombre = nombre;
         this.fuerza = fuerza;
         this.inteligencia = inteligencia;
@@ -27,7 +26,7 @@ public class Personaje implements Razas {
         this.defensa = defensa;
         this.velocidad = velocidad;
         this.clases = clases;
-        this.razas = razas;
+
     }
 //GETTER Y SETTER
     public String getNombre() {
@@ -102,11 +101,4 @@ public class Personaje implements Razas {
         this.clases = clases;
     }
 
-    public Razas getRazas() {
-        return razas;
-    }
-
-    public void setRazas(Razas razas) {
-        this.razas = razas;
-    }
 }
