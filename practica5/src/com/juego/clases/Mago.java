@@ -3,7 +3,10 @@ package com.juego.clases;
 public class Mago extends Clases {
     //Constructor
     public Mago() {
-        super(1, 2, 4, 95, 95, 2, 2);
+        super(0, 0, 3, 90, 90, 0, 0);
     }
+
+    //Habilidades Mago
+
 }
 

@@ -3,7 +3,10 @@ package com.juego.clases;
 public class Monje extends Clases {
     //Constructor
     public Monje() {
-        super(3, 2, 1, 115, 115, 3, 2);
+        super(2, 1, 0, 110, 110, 0, 2);
     }
+
+    //Habilidades Monje
+
 }
 

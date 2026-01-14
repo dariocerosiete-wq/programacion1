@@ -3,7 +3,10 @@ package com.juego.clases;
 public class Paladin extends Clases {
     //Constructor
     public Paladin() {
-        super(3, 2, 2, 119, 119, 2, 2);
+        super(2, 0, 1, 115, 115, 0, 2);
     }
+
+    //Habilidades Paladin
+
 }
 

@@ -11,14 +11,14 @@ public class Clases {
     private int velocidad;
 
     //Contructor
-    public Clases(int fuerza, int destreza, int inteligencia, int vida, int vidaMax, int defensa, int rapidez) {
+    public Clases(int fuerza, int destreza, int inteligencia, int vida, int vidaMax, int defensa, int velocidad) {
         this.fuerza = fuerza;
         this.destreza = destreza;
         this.inteligencia = inteligencia;
         this.vida = vida;
         this.vidaMax = vidaMax;
         this.defensa = defensa;
-        this.rapidez = rapidez;
+        this.velocidad = velocidad;
     }
 
     //GETTER Y SETTER
@@ -71,11 +71,11 @@ public class Clases {
         this.defensa = defensa;
     }
 
-    public int getRapidez() {
-        return rapidez;
+    public int getVelocidad() {
+        return velocidad;
     }
 
-    public void setRapidez(int rapidez) {
-        this.rapidez = rapidez;
+    public void setVelocidad(int rapidez) {
+        this.velocidad = velocidad;
     }
 }

@@ -3,7 +3,10 @@ package com.juego.clases;
 public class Picaro extends Clases {
     //Constructor
     public Picaro() {
-        super(2, 4, 1, 100, 100, 2, 2);
+        super(0, 3, 0, 105, 105, 2, 2);
     }
+
+    //Habilidades Picaro
+
 }
 

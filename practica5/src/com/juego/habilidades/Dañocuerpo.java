@@ -1,6 +1,6 @@
 package com.juego.habilidades;
 
-public class Daniocuerpo implements Habilidad {
+public class Dañocuerpo implements Habilidad {
     private String nombre;
 
 
