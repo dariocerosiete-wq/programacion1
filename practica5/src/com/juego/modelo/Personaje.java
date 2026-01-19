@@ -1,7 +1,7 @@
 package com.juego.modelo;
 import com.juego.clases.Clases;
 //Clase
-public class Personaje {
+public abstract class Personaje {
     //Atributos
     private String nombre;
     private int fuerza;
@@ -99,6 +99,10 @@ public class Personaje {
 
     public void setClases(Clases clases) {
         this.clases = clases;
+    }
+
+    public String mostrarDatos() {
+        return null;
     }
 
 }
