@@ -1,11 +1,25 @@
 package com.juego.habilidades;
 
-public class Dañocuerpo implements Habilidad {
-    private String nombre;
+import com.juego.modelo.Personaje;
 
+public class Dañocuerpo extends HabilidadBase {
+
+    public Dañocuerpo() {
+        super("Ataque Cuerpo a Cuerpo", 5);
+    }
 
     @Override
-    public boolean usar() {
-        return false;
+    public int usar(Personaje usuario, Personaje objetivo) {
+        if (!puedeUsarse()) return 0;
+        
+        // AUMENTO DE DAÑO: Fuerza * 3
+        int dano = (usuario.getFuerza() * 3) - objetivo.getDefensa();
+        if (dano < 5) dano = 5; // Daño mínimo garantizado
+        
+        objetivo.recibirDano(dano);
+        consumirUso();
+        
+        System.out.println("⚔️ " + usuario.getNombre() + " golpea brutalmente a " + objetivo.getNombre() + " causando " + dano + " de daño!");
+        return -dano;
     }
 }

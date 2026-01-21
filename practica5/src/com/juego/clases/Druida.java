@@ -1,12 +1,26 @@
 package com.juego.clases;
 
+import com.juego.habilidades.Curacuerpo;
+import com.juego.habilidades.Dañocuerpo;
+import com.juego.habilidades.Dañodistancia;
+//Uniendo la superclase clase
 public class Druida extends Clases {
-    //Constructor
-    public Druida() {
-        super(2, 0, 1, 115, 115, 0, 0);
+    @Override
+    protected void inicializarHabilidades() {
+        habilidades.add(new Dañocuerpo());
+        habilidades.add(new Curacuerpo());
+        habilidades.add(new Dañodistancia());
     }
 
-    //Habilidades Druida
+    @Override
+    public int getBonoFuerza() { return 2; }
+    @Override
+    public int getBonoInteligencia() { return 1; }
+    @Override
+    public int getBonoDestreza() { return 0; }
+    @Override
+    public int getVidaMaximaClase() { return 100; }
 
+    @Override
+    public String toString() { return "Druida"; }
 }
-

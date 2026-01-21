@@ -1,25 +1,29 @@
 package com.juego.modelo;
 
 public class Combate {
-    Personaje p1;
-    Personaje p2;
+    private Personaje luchador1;
+    private Personaje luchador2;
+//Maximo tiene que jugar dos jugadores que los vamos a llamar luchador1 y luchador2
+    public Combate(Personaje p1, Personaje p2) {
+        this.luchador1 = p1;
+        this.luchador2 = p2;
+    }
 
-    public Combate (Personaje p1, Personaje p2){
-        this.p1=p1;
-        this.p2=p2;
+    public Personaje getLuchador1() {
+        return luchador1;
+    }
 
-       public Combate iniciarCombate(){
-            int cont=0;
-            while (this.p1.getVida()>0 && this.p2.getVida()>0){
-                System.out.print("Turno" +cont);
-                System.out.println(p1.mostrarDatos());
-                System.out.println(p2.mostrarDatos());
-                this.efectoHabilidad(h1,h2);
-            }
-            public String mostrarDatos(){
-        }
-
-        }
-        public int efectoHabilidad(Habilidad h1, Habilidad h2)
+    public Personaje getLuchador2() {
+        return luchador2;
+    }
+    //Aquí preguntamos si siguen vivos
+    public boolean combateTerminado() {
+        return !luchador1.estaVivo() || !luchador2.estaVivo();
+    }
+    //Aquí sabemos que personaje a ganado
+    public Personaje getGanador() {
+        if (luchador1.estaVivo() && !luchador2.estaVivo()) return luchador1;
+        if (luchador2.estaVivo() && !luchador1.estaVivo()) return luchador2;
+        return null;
     }
 }

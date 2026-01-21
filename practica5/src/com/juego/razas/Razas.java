@@ -1,6 +1,10 @@
 package com.juego.razas;
 
 public interface Razas {
-    void bonificadorRazas();
-
+    //Metodos interfaz Razas
+    int getFuerzaBase();
+    int getInteligenciaBase();
+    int getDestrezaBase();
+    int getVidaBase();
+    String getEspecialidad();
 }

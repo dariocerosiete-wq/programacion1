@@ -1,14 +1,26 @@
 package com.juego.clases;
+
+import com.juego.habilidades.Curacuerpo;
+import com.juego.habilidades.Dañocuerpo;
+import com.juego.habilidades.Dañodistancia;
+//Uniendo la superclase clase
 public class Guerrero extends Clases {
-    //Constructor
-    public Guerrero() {
-        super(3, 0, 0, 120, 120, 0, 0);
+    @Override
+    protected void inicializarHabilidades() {
+        habilidades.add(new Dañocuerpo());
+        habilidades.add(new Curacuerpo());
+        habilidades.add(new Dañodistancia());
     }
 
-    //Habilidades Guerrero
+    @Override
+    public int getBonoFuerza() { return 3; }
+    @Override
+    public int getBonoInteligencia() { return 0; }
+    @Override
+    public int getBonoDestreza() { return 0; }
+    @Override
+    public int getVidaMaximaClase() { return 120; }
+    
+    @Override
+    public String toString() { return "Guerrero"; }
 }
-
-
-
-
-

@@ -1,108 +1,71 @@
 package com.juego.modelo;
+
 import com.juego.clases.Clases;
-//Clase
-public abstract class Personaje {
-    //Atributos
+import com.juego.razas.Razas;
+import com.juego.habilidades.Habilidad;
+import java.util.List;
+
+public class Personaje {
     private String nombre;
+    private Razas raza;
+    private Clases clase;
+    
     private int fuerza;
     private int inteligencia;
     private int destreza;
     private int vida;
-    private int defensa;
-    private int velocidad;
     private int vidaMax;
-    private Clases clases;
 
-
-//Contructor
-
-    public Personaje( String nombre, int fuerza, int inteligencia, int destreza, int defensa, int velocidad, int vidaMax, Clases clases) {
+    public Personaje(String nombre, Razas raza, Clases clase) {
         this.nombre = nombre;
-        this.fuerza = fuerza;
-        this.inteligencia = inteligencia;
-        this.destreza = destreza;
-        this.vida = vidaMax;
-        this.vidaMax = vidaMax;
-        this.defensa = defensa;
-        this.velocidad = velocidad;
-        this.clases = clases;
-
+        this.raza = raza;
+        this.clase = clase;
+        calcularEstadisticas();
     }
-//GETTER Y SETTER
-    public String getNombre() {
-        return nombre;
+//Calculamos las estadisticas según el personaje
+    private void calcularEstadisticas() {
+        this.fuerza = raza.getFuerzaBase() + clase.getBonoFuerza();
+        this.inteligencia = raza.getInteligenciaBase() + clase.getBonoInteligencia();
+        this.destreza = raza.getDestrezaBase() + clase.getBonoDestreza();
+        //La vida depende de que clase escogas
+        this.vidaMax = clase.getVidaMaximaClase();
+        this.vida = this.vidaMax;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+//Recibir daño al oponente y por eso se resta vida
+    public void recibirDano(int cantidad) {
+        this.vida -= cantidad;
+        if (this.vida < 0) {
+            this.vida = 0;
+        }
     }
-
-    public int getFuerza() {
-        return fuerza;
-    }
-
-    public void setFuerza(int fuerza) {
-        this.fuerza = fuerza;
-    }
-
-    public int getInteligencia() {
-        return inteligencia;
+//Curación personaje
+    public void curar(int cantidad) {
+        this.vida += cantidad;
+        if (this.vida > this.vidaMax) {
+            this.vida = this.vidaMax;
+        }
     }
 
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
+    public boolean estaVivo() {
+        return this.vida > 0;
+    }
+//Lista de habilidades para guardar las habilidades
+    public List<Habilidad> getHabilidades() {
+        return clase.getHabilidades();
     }
 
-    public int getDestreza() {
-        return destreza;
-    }
-
-    public void setDestreza(int destreza) {
-        this.destreza = destreza;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
-
-    public int getDefensa() {
-        return defensa;
-    }
-
-    public void setDefensa(int defensa) {
-        this.defensa = defensa;
-    }
-
-    public int getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public int getVidaMax() {
-        return vidaMax;
-    }
-
-    public void setVidaMax(int vidaMax) {
-        this.vidaMax = vidaMax;
-    }
-
-    public Clases getClases() {
-        return clases;
-    }
-
-    public void setClases(Clases clases) {
-        this.clases = clases;
-    }
-
+    // Getters
+    public String getNombre() { return nombre; }
+    public int getFuerza() { return fuerza; }
+    public int getInteligencia() { return inteligencia; }
+    public int getDestreza() { return destreza; }
+    public int getVida() { return vida; }
+    public int getVidaMax() { return vidaMax; }
+    // Simplificación: defensa 0 o basada en destreza si se requiere
+    public int getDefensa() { return 0; }
+    //Mostar los datos depende del personaje o elecciones para crearte un nuevo personaje
     public String mostrarDatos() {
-        return null;
+        return String.format("%s (%s %s) - HP: %d/%d - FUE: %d INT: %d DES: %d", 
+            nombre, raza.getClass().getSimpleName(), clase.toString(), vida, vidaMax, fuerza, inteligencia, destreza);
     }
-
 }
