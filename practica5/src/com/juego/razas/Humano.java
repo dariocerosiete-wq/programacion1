@@ -2,7 +2,7 @@ package com.juego.razas;
 //Implementación de la interfaz Razas
 public class Humano implements Razas {
     @Override
-    public int getFuerzaBase() { return 5; }
+    public int getFuerzaBase() { return 6; }
     @Override
     public int getInteligenciaBase() { return 5; }
     @Override

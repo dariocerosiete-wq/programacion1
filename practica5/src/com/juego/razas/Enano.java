@@ -2,7 +2,7 @@ package com.juego.razas;
 //Implementación de la interfaz Razas
 public class Enano implements Razas {
     @Override
-    public int getFuerzaBase() { return 7; }
+    public int getFuerzaBase() { return 8; }
     @Override
     public int getInteligenciaBase() { return 4; }
     @Override
