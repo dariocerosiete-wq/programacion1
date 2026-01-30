@@ -2,7 +2,7 @@ package com.juego.razas;
 //Implementación de la interfaz Razas
 public class Elfo implements Razas {
     @Override
-    public int getFuerzaBase() { return 4; }
+    public int getFuerzaBase() { return 6; }
     @Override
     public int getInteligenciaBase() { return 6; }
     @Override

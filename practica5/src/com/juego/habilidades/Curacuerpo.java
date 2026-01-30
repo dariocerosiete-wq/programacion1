@@ -13,7 +13,7 @@ public class Curacuerpo extends HabilidadBase {
         if (!puedeUsarse()) return 0;
 
         // AUMENTO DE CURACIÓN: Inteligencia * 4 + 20 base
-        int curacion = (usuario.getInteligencia() * 4) + 20; 
+        int curacion = (usuario.getInteligencia() * 10) + 30;
         usuario.curar(curacion); 
         consumirUso();
         

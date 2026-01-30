@@ -13,7 +13,7 @@ public class Dañodistancia extends HabilidadBase {
         if (!puedeUsarse()) return 0;
 
         // AUMENTO DE DAÑO: (Destreza + Inteligencia) * 5
-        int dano = (usuario.getDestreza() + usuario.getInteligencia()) * 5;
+        int dano = (usuario.getDestreza() + usuario.getInteligencia()) * 10;
         
         objetivo.recibirDano(dano);
         consumirUso();
