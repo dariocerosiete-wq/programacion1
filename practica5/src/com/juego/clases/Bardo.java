@@ -24,3 +24,4 @@ public class Bardo extends Clases {
     @Override
     public String toString() { return "Bardo"; }
 }
+

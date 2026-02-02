@@ -57,13 +57,13 @@ public class VistaCombateConsola implements VistaCombate {
 
     @Override
     public int pedirIndicePersonaje(String etiqueta) {
-        System.out.print("> Elige al " + etiqueta + " (número): ");
+        System.out.print(" Elige al " + etiqueta + " (número): ");
         return pedirOpcion() - 1;
     }
 //Que el usuario ponga su nombre para crear personaje
     @Override
     public String pedirNombrePersonaje() {
-        System.out.print("> Introduce el nombre para tu nuevo personaje: ");
+        System.out.print(" Introduce el nombre para tu nuevo personaje: ");
         return scanner.nextLine();
     }
 //Opcion elección raza
@@ -93,8 +93,7 @@ public class VistaCombateConsola implements VistaCombate {
         float porcentaje = (float) actual / max;
         int longitudBarra = 20;
         int caracteresLlenos = (int) (longitudBarra * porcentaje);
-        
-        return "[" + "■".repeat(caracteresLlenos) + " ".repeat(longitudBarra - caracteresLlenos) + "]";
+        return "[" + "".repeat(caracteresLlenos) + " ".repeat(longitudBarra - caracteresLlenos) + "]";
     }
 
     @Override
@@ -140,9 +139,9 @@ public class VistaCombateConsola implements VistaCombate {
         imprimirTitulo("Combate Finalizado");
         System.out.println("\n" +
             "************************************************************\n" +
-            "**                                                        **\n" +
-            "**              El ganador es: " + String.format("%-20s", ganador.getNombre().toUpperCase()) + " **\n" +
-            "**                                                        **\n" +
+            "                                                            \n" +
+            "              El ganador es: " + String.format("%-20s", ganador.getNombre().toUpperCase()) + "   \n" +
+            "                                                            \n" +
             "************************************************************\n");
         System.out.println("Presiona Enter para volver al menú principal...");
         scanner.nextLine();
