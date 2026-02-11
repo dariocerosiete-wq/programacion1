@@ -1,8 +1,32 @@
+
+
 public class Main {
-    public void main (String[] args){
-        while (true){
-            System.out.println("Puto James Gosling para que creas el programa mas complicado");
-            break;
-        }
+    public static void main(String[] args) {
+            //Creamos un nuevo bloque para ejecutar todas las funciones(metodos)
+            Bloque1 bloque1 = new Bloque1();
+
+            //Primera Función (Para ver los eventos)
+            bloque1.RegistroMuerte();
+
+            //Segunda Función (Que no se duplique dos veces)
+            bloque1.Censo();
+
+            //Tercera Función (Mostrar oro de los heroes)
+            bloque1.BolsaDeOro();
+
+            //Cuarta Función (Para eliminar un indice)
+        bloque1.LimpiezaCalabozo();
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
