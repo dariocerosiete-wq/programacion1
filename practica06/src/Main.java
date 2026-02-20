@@ -15,8 +15,13 @@ public class Main {
             bloque1.BolsaDeOro();
 
             //Cuarta Función (Para eliminar un indice)
-        bloque1.LimpiezaCalabozo();
+            bloque1.LimpiezaCalabozo();
 
+            //Quinta función(saber los precios de los hechizos)
+            bloque1.MercadoHechizos();
+
+            //Sexta funcion (Para eliminar al Sauron)
+            bloque1.ExpulsionReino();
 
     }
 }
