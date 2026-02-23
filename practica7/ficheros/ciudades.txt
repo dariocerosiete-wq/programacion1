@@ -1,0 +1,2 @@
+Jerez;20000;Soleado;3
+Sevilla;5000;Nublado;8
