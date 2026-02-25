@@ -20,12 +20,11 @@ public class JsonHelper {
                     new TypeToken<List<Personaje>>(){}.getType()
             );
             for (Personaje p : listaPersonaje){
-                System.out.println("Nombre del personaje : " + p.getNombre());
-                System.out.println("Raza del personaje " + p.getRaza());
-                System.out.println("Nivel del personaje " + p.getNivel());
-                System.out.println("Id del equipo del personaje " + p.getEquipo());
+                System.out.println("Nombre del personaje: " + p.getNombre());
+                System.out.println("Raza del personaje: " + p.getRaza());
+                System.out.println("Nivel del personaje: " + p.getNivel());
+                System.out.println("Id del equipo del personaje :" + p.getEquipo());
             }
-            reader.close();
 
         }catch (IOException e){
             System.out.println("No se ha podido abrir el archivo.");
