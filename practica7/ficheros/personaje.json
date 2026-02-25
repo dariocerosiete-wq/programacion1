@@ -5,11 +5,22 @@
     "nivel": 20,
     "equipoIds": ["E01"]
   },
-
   {
     "nombre": "Roberto",
     "raza": "Humano",
     "nivel": 30,
     "equipoIds": ["E02"]
+  },
+  {
+    "nombre": "Adrían",
+    "raza": "Humano",
+    "nivel": 40,
+    "equipoIds": ["E03"]
+  },
+  {
+    "nombre": "Juan Jose",
+    "raza": "Monstruo",
+    "nivel": 1,
+    "equipoIds": ["E04"]
   }
 ]

@@ -1,2 +1,5 @@
+#Nombre;Poblacion;Clima;Riesgo
 Jerez;20000;Soleado;3
-Sevilla;5000;Nublado;8
+Sevilla;5000;Nublado;2
+Granada;4000;Nevado;5
+Cádiz;3000;Lluvioso;1

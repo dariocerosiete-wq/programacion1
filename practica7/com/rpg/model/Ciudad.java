@@ -5,8 +5,14 @@ public class Ciudad {
     Integer poblacion;
     String clima;
     Integer riesgo;
-    public Ciudad (String nombre, Integer poblacion, String clima, Integer riesgo){
+
+    public Ciudad(String nombre, Integer poblacion, String clima, Integer riesgo) {
+        this.nombre = nombre;
+        this.poblacion = poblacion;
+        this.clima = clima;
+        this.riesgo = riesgo;
     }
+
     public String getNombre() {
         return nombre;
     }
