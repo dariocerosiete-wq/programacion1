@@ -1,17 +1,22 @@
 package com.rpg.model;
 
+//Ciudad clase
 public class Ciudad {
+    //Atributos de ciudad
     String nombre;
-    Integer poblacion;
+    int poblacion;
     String clima;
-    Integer riesgo;
+    int riesgo;
+    //Constructor de ciudad
 
-    public Ciudad(String nombre, Integer poblacion, String clima, Integer riesgo) {
+    public Ciudad(String nombre, int poblacion, String clima, int riesgo) {
         this.nombre = nombre;
         this.poblacion = poblacion;
         this.clima = clima;
         this.riesgo = riesgo;
     }
+
+    //Getters y setters de iteM
 
     public String getNombre() {
         return nombre;
@@ -21,11 +26,11 @@ public class Ciudad {
         this.nombre = nombre;
     }
 
-    public Integer getPoblacion() {
+    public int getPoblacion() {
         return poblacion;
     }
 
-    public void setPoblacion(Integer poblacion) {
+    public void setPoblacion(int poblacion) {
         this.poblacion = poblacion;
     }
 
@@ -37,11 +42,11 @@ public class Ciudad {
         this.clima = clima;
     }
 
-    public Integer getRiesgo() {
+    public int getRiesgo() {
         return riesgo;
     }
 
-    public void setRiesgo(Integer riesgo) {
+    public void setRiesgo(int riesgo) {
         this.riesgo = riesgo;
     }
 }

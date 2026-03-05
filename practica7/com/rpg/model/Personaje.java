@@ -1,21 +1,20 @@
 package com.rpg.model;
-
-import java.util.Collections;
 import java.util.List;
 
+//Atributos de personaje
 public class Personaje {
-    String nombre;
-    String raza;
-    Integer nivel;
-    List<Item> equipo;
-
+    public String nombre;
+    public String raza;
+    public Integer nivel;
+    public List<Item> equipo;
+    //Constructor de personajes
     public Personaje(String nombre, String raza, Integer nivel, Item equipo) {
         this.nombre = nombre;
         this.raza = raza;
         this.nivel = nivel;
         this.equipo = (List<Item>) equipo;
     }
-
+    //Getters y setters de personajes
     public String getNombre() {
         return nombre;
     }
@@ -48,3 +47,4 @@ public class Personaje {
         this.equipo = (List<Item>) equipo;
     }
 }
+
