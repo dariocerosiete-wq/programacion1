@@ -1,45 +1,39 @@
 package com.rpg.utils;
 
+import com.rpg.handler.FormatoInvalidoException;
+import com.rpg.handler.RPGDataException;
 import com.rpg.model.Ciudad;
 
-import java.io.*;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TxtHelper {
+    private LoggerCustom loggerCustom;
     public TxtHelper(){
-
+        this.loggerCustom = new LoggerCustom();
     }
-    //Metodo leer txt
-    public static void leerTxt() {
+    public List<Ciudad> leerCiudades() throws FormatoInvalidoException {
+        List<Ciudad> ciudades = new ArrayList<>();
         try {
-            List<String> lineas = Files.readAllLines(Paths.get("practica7\\ficheros\\ciudades.txt"));
-            List<Ciudad> listaCiudades = new ArrayList<>();
-            System.out.println("-Contenido del fichero ciudades-");
-            //Para remover la primera linea
-            lineas.remove(0);
+            List<String> lineas = Files.readAllLines (Paths.get("practica7//ficheros//ciudades.txt"));
             for (String linea: lineas) {
-                System.out.println(linea);
-                String[] s=linea.split(";");
-                Ciudad c= new Ciudad(
+                String[] s = linea.split(";");
+                Ciudad c = new Ciudad(
                         s[0],
                         Integer.parseInt(s[1]),
                         s[2],
                         Integer.parseInt(s[3])
                 );
-                listaCiudades.add(c);
-                System.out.println("Nombre: " +c.getNombre());
-                System.out.println("Población: " +c.getPoblacion());
-                System.out.println("Clima: " +c.getClima());
-                System.out.println("Riesgo: " +c.getRiesgo());
-                System.out.println("Total de lineas: " +lineas.size());
+                ciudades.add(c);
             }
-        } catch (IOException e) {
-            System.out.println("No se ha podido abrir el fichero.");
+        } catch (Exception e) {
+            loggerCustom.escribirLog("No se ha podido procesar el fichero: "+ e.getMessage());
+            throw new FormatoInvalidoException("No se ha podido procesar el fichero");
         }
+        return ciudades;
     }
 }
-
 

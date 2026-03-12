@@ -1,58 +1,61 @@
 package com.rpg.utils;
-
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.rpg.handler.FormatoInvalidoException;
 import com.rpg.model.Item;
 import com.rpg.model.Personaje;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.Writer;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JsonHelper {
-    //Metodo leer personaje
-    public static void leerPersonajes() {
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get("practica7\\ficheros\\personaje.json"));
-            System.out.println("-Contenido del fichero Json (Personaje)-");
-            List<Personaje> lista = new Gson().fromJson(
-                    reader,
-                    new TypeToken<List<Personaje>>() {
-                    }.getType()
-            );
-            for (Personaje p : lista) {
-                System.out.println("Nombre personajes: " + p.getNombre());
-                System.out.println("Raza personaje: " + p.getRaza());
-                System.out.println("Nivel personaje: " + p.getNivel());
-                System.out.println("Equipo personaje: " + p.getEquipo());
-
-            }
+    private LoggerCustom loggerCustom;
+    public JsonHelper(){
+        this.loggerCustom = new LoggerCustom();
+    };
+    public List<Personaje> leerPersonajes() throws FormatoInvalidoException{
+        Gson gson = new Gson();
+        List<Personaje> personajes = new ArrayList<>();
+        try (FileReader reader = new FileReader("practica7//ficheros//personajes.json")) {
+            Type listaTipo = new TypeToken<List<Personaje>>() {}.getType();
+            personajes = gson.fromJson(reader, listaTipo);
         } catch (IOException e) {
-            System.out.println("No se ha podido leer el fichero");
+            System.out.println("No se ha podido abrir el fichero.");
         }
+        catch (Exception e) {
+            loggerCustom.escribirLog("No se ha podido procesar el fichero: "+ e.getMessage());
+            throw new FormatoInvalidoException("No se ha podido procesar el fichero");
+        }
+        return personajes;
     }
-
-    public static void leerItems() {
-        try {
-            Reader reade = Files.newBufferedReader(Paths.get("practica7\\ficheros\\items.json"));
-            System.out.println("-Contenido del fichero Json (Item)-");
-            List<Item> lista = new Gson().fromJson(
-                    reade,
-                    new TypeToken<List<Item>>() {
-                    }.getType()
-            );
-            for (Item i : lista) {
-                System.out.println("Id: " + i.getId());
-                System.out.println("Nombre: " + i.getNombre());
-                System.out.println("Tipo: " + i.getTipo());
-                System.out.println("Valor: " + i.getValor());
-
-            }
-
+    public List<Item> leerItems() throws FormatoInvalidoException{
+        Gson gson = new Gson();
+        List<Item> items = new ArrayList<>();
+        try (FileReader reader = new FileReader("practica7//ficheros//items.json")) {
+            Type listaTipo = new TypeToken<List<Item>>() {}.getType();
+            items = gson.fromJson(reader, listaTipo);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("No se ha podido abrir el fichero.");
+        }
+        catch (Exception e) {
+            loggerCustom.escribirLog("No se ha podido procesar el fichero: "+ e.getMessage());
+            throw new FormatoInvalidoException("No se ha podido procesar el fichero");
+        }
+        return items;
+    }
+    public <T> void escribirJSON(String path, List<T> lista) throws FormatoInvalidoException {
+        try (Writer writer = new FileWriter(path)) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(lista, writer);
+        } catch (IOException e) {
+            loggerCustom.escribirLog("No se ha podido escribir en el archivo: "+ e.getMessage());
+            throw new FormatoInvalidoException("No se ha podido escribir en el archivo "+e.getMessage());
         }
     }
 }
