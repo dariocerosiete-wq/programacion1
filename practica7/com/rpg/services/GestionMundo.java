@@ -80,6 +80,7 @@ public class GestionMundo {
             System.err.println("Fallo de validación: " + e.getMessage());
             throw new RPGDataException("Carga abortada por regla Biomas.");
         }
+Personaje.removeAll(personajeParaBorrar);
 
     }
 
