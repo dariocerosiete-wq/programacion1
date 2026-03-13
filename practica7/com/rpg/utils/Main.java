@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws RPGDataException {
         GestionMundo mundo = new GestionMundo();
         mundo.cargarTodo();
-        mundo.crearPersonaje("Ango","Elfo",7, List.of("E01","E02"));
+        mundo.analizarBiomasPersonajes();
         mundo.guardarCambios();
     }
 }

@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TxtHelper {
-    private LoggerCustom loggerCustom;
+    private static LoggerCustom loggerCustom;
     public TxtHelper(){
         this.loggerCustom = new LoggerCustom();
     }
-    public List<Ciudad> leerCiudades() throws FormatoInvalidoException {
+    public static List<Ciudad> leerCiudades() throws FormatoInvalidoException {
         List<Ciudad> ciudades = new ArrayList<>();
         try {
             List<String> lineas = Files.readAllLines (Paths.get("practica7//ficheros//ciudades.txt"));

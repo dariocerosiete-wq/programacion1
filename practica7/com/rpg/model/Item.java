@@ -1,5 +1,7 @@
 package com.rpg.model;
 
+import java.util.List;
+
 public class Item {
     //Atributos de item
     public String id;

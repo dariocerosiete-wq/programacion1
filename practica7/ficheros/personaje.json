@@ -1,26 +1,22 @@
 [
   {
     "nombre": "Aragorn",
-    "raza": "Humano",
-    "nivel": 20,
-    "equipoIds": ["E01"]
+    "raza": "Enano",
+    "nivel": 20
   },
   {
     "nombre": "Roberto",
     "raza": "Humano",
-    "nivel": 30,
-    "equipoIds": ["E02"]
+    "nivel": 30
   },
   {
     "nombre": "Adrían",
     "raza": "Humano",
-    "nivel": 40,
-    "equipoIds": ["E03"]
+    "nivel": 40
   },
   {
     "nombre": "Juan Jose",
     "raza": "Monstruo",
-    "nivel": 1,
-    "equipoIds": ["E04"]
+    "nivel": 1
   }
 ]

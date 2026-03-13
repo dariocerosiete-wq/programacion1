@@ -1,9 +1,6 @@
 package com.rpg.services;
 
-import com.rpg.handler.DatoInvalidoException;
-import com.rpg.handler.FormatoInvalidoException;
-import com.rpg.handler.RPGDataException;
-import com.rpg.handler.RecursoNoEncontradoException;
+import com.rpg.handler.*;
 import com.rpg.model.Ciudad;
 import com.rpg.model.Item;
 import com.rpg.model.Personaje;
@@ -11,6 +8,7 @@ import com.rpg.utils.JsonHelper;
 import com.rpg.utils.LoggerCustom;
 import com.rpg.utils.TxtHelper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,6 +18,7 @@ public class GestionMundo {
     private List<Item> listaItems;
     private HashMap<String,Item> mapaItems;
     private LoggerCustom loggerCustom;
+
     public GestionMundo(){
         this.loggerCustom = new LoggerCustom();
         this.mapaItems = new HashMap<>();
@@ -30,6 +29,7 @@ public class GestionMundo {
             txtHelper.leerCiudades();
             JsonHelper jsonHelper = new JsonHelper();
             listaPersonajes = jsonHelper.leerPersonajes();
+            listaCiudades = TxtHelper.leerCiudades();
             listaItems = jsonHelper.leerItems();
             for (Item item: listaItems){
                 this.mapaItems.put(item.getId(), item);
@@ -45,27 +45,49 @@ public class GestionMundo {
             loggerCustom.escribirLog(e.getMessage());
         }
     }
-    public void crearPersonaje(String nombre, String raza, int nivel, List<String> idsItems) throws RPGDataException {
-        try{
+    public void analizarBiomasPersonajes() throws RPGDataException {
+        List<Personaje> personajeParaBorrar = new ArrayList<>();
+        try {
+            JsonHelper jsonHelper = new JsonHelper();
+            listaPersonajes = jsonHelper.leerPersonajes();
+            listaCiudades = TxtHelper.leerCiudades();
+            listaItems = jsonHelper.leerItems();
 
-            for (String id : idsItems) {
-                if (!mapaItems.containsKey(id)) {
-                    loggerCustom.escribirLog("El Item no Existe");
-                    throw new RecursoNoEncontradoException("El Item no Existe");
+            for (Personaje p : listaPersonajes) {
+                for (Ciudad c : listaCiudades) {
+                    if (p.getRaza().equalsIgnoreCase("Enano") && c.getClima().equalsIgnoreCase("Desertico")) {
+                        loggerCustom.escribirLog("ERROR: Enano " + p.getNombre() + " no puede estar en clima Desertico (Ciudad: " + c.getNombre() + ")");
+                        personajeParaBorrar.add(p);
+                        throw new ValidadorBiomas("Un Enano no puede aparecer en un clima Desertico.");
+                    }
                 }
             }
 
-            Personaje personaje = new Personaje(nombre, raza, nivel, idsItems);
-            listaPersonajes.add(personaje);
+            for (Ciudad c : listaCiudades) {
+                if (c.getClima().equalsIgnoreCase("Volcanica")) {
+                    for (Item i : listaItems) {
+                        if (i.getTipo().equalsIgnoreCase("HIELO") || i.getNombre().equalsIgnoreCase("HIELO")) {
+                            loggerCustom.escribirLog("ERROR: El item " + i.getNombre() + " (HIELO) no puede existir en ciudad Volcanica: " + c.getNombre());
+                            throw new ValidadorBiomas("Un item de HIELO no puede existir en una ciudad Volcanica.");
+                        }
+                    }
+                }
+            }
 
+            System.out.println("Mundo cargado y validado correctamente.");
+
+        } catch (ValidadorBiomas e) {
+            System.err.println("Fallo de validación: " + e.getMessage());
+            throw new RPGDataException("Carga abortada por regla Biomas.");
         }
-        catch (Exception e){
-            loggerCustom.escribirLog("No se ha podido crear el personaje "+e.getMessage());
-        }
+
     }
+
+
+
     public void guardarCambios() throws FormatoInvalidoException {
         JsonHelper jsonHelper = new JsonHelper();
-        jsonHelper.escribirJSON("practica7/ficheros/personajes.json", listaPersonajes);
+        jsonHelper.escribirJSON("practica7/ficheros/personaje.json", listaPersonajes);
     }
     public List<Ciudad> getListaCiudades() {
         return listaCiudades;
@@ -90,4 +112,6 @@ public class GestionMundo {
     public void setListaItems(List<Item> listaItems) {
         this.listaItems = listaItems;
     }
+
+
 }

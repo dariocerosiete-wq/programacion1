@@ -1,5 +1,5 @@
 [
-  { "id": "W01", "nombre": "Hacha Doble", "tipo": "ARMA", "valor": 100 },
+  { "id": "E01", "nombre": "Hacha Doble", "tipo": "HIELO", "valor": 100 },
   { "id": "P01", "nombre": "Pocion", "tipo": "CONSUMIBLE", "valor": 25 },
   { "id": "W01", "nombre": "Pistola", "tipo": "ARMA", "valor": 100 },
   { "id": "P01", "nombre": "Pocion curadora", "tipo": "CONSUMIBLE", "valor": 25 }

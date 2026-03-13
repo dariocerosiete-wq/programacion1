@@ -1,4 +1,6 @@
+Betis;5000;Volcanica;2
 Jerez;20000;Soleado;3
+Jaen;4000;Desertico;2
 Sevilla;5000;Nublado;2
 Granada;4000;Nevado;5
 Cádiz;3000;Lluvioso;1

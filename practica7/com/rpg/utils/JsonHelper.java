@@ -22,7 +22,7 @@ public class JsonHelper {
     public List<Personaje> leerPersonajes() throws FormatoInvalidoException{
         Gson gson = new Gson();
         List<Personaje> personajes = new ArrayList<>();
-        try (FileReader reader = new FileReader("practica7//ficheros//personajes.json")) {
+        try (FileReader reader = new FileReader("practica7//ficheros//personaje.json")) {
             Type listaTipo = new TypeToken<List<Personaje>>() {}.getType();
             personajes = gson.fromJson(reader, listaTipo);
         } catch (IOException e) {
