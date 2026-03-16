@@ -46,42 +46,33 @@ public class GestionMundo {
         }
     }
     public void analizarBiomasPersonajes() throws RPGDataException {
-        List<Personaje> personajeParaBorrar = new ArrayList<>();
         try {
             JsonHelper jsonHelper = new JsonHelper();
             listaPersonajes = jsonHelper.leerPersonajes();
             listaCiudades = TxtHelper.leerCiudades();
             listaItems = jsonHelper.leerItems();
 
-            for (Personaje p : listaPersonajes) {
-                for (Ciudad c : listaCiudades) {
-                    if (p.getRaza().equalsIgnoreCase("Enano") && c.getClima().equalsIgnoreCase("Desertico")) {
-                        loggerCustom.escribirLog("ERROR: Enano " + p.getNombre() + " no puede estar en clima Desertico (Ciudad: " + c.getNombre() + ")");
-                        personajeParaBorrar.add(p);
-                        throw new ValidadorBiomas("Un Enano no puede aparecer en un clima Desertico.");
-                    }
-                }
-            }
+            listaPersonajes.removeIf(p -> p.getRaza().equalsIgnoreCase("Enano") &&
+                    listaCiudades.stream().anyMatch(c -> c.getClima().equalsIgnoreCase("Desertico")));
+
+            listaItems.removeIf(item -> item.getTipo().equalsIgnoreCase("HIELO"));
 
             for (Ciudad c : listaCiudades) {
                 if (c.getClima().equalsIgnoreCase("Volcanica")) {
                     for (Item i : listaItems) {
-                        if (i.getTipo().equalsIgnoreCase("HIELO") || i.getNombre().equalsIgnoreCase("HIELO")) {
-                            loggerCustom.escribirLog("ERROR: El item " + i.getNombre() + " (HIELO) no puede existir en ciudad Volcanica: " + c.getNombre());
-                            throw new ValidadorBiomas("Un item de HIELO no puede existir en una ciudad Volcanica.");
+                        if (i.getNombre().toUpperCase().contains("HIELO")) {
+                            throw new RPGDataException("¡Item de HIELO en zona Volcánica!");
                         }
                     }
                 }
             }
 
-            System.out.println("Mundo cargado y validado correctamente.");
+            System.out.println("Mundo validado.");
 
-        } catch (ValidadorBiomas e) {
-            System.err.println("Fallo de validación: " + e.getMessage());
-            throw new RPGDataException("Carga abortada por regla Biomas.");
+        } catch (Exception e) {
+            loggerCustom.escribirLog("ERROR: " + e.getMessage());
+            throw new RPGDataException("Fallo en la carga.");
         }
-Personaje.removeAll(personajeParaBorrar);
-
     }
 
 
