@@ -45,6 +45,7 @@ public class GestionMundo {
             loggerCustom.escribirLog(e.getMessage());
         }
     }
+
     public void analizarBiomasPersonajes() throws RPGDataException {
         try {
             JsonHelper jsonHelper = new JsonHelper();
@@ -69,7 +70,7 @@ public class GestionMundo {
 
             System.out.println("Mundo validado.");
 
-        } catch (Exception e) {
+        } catch (ValidadorBiomas e) {
             loggerCustom.escribirLog("ERROR: " + e.getMessage());
             throw new RPGDataException("Fallo en la carga.");
         }

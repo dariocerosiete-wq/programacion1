@@ -1,9 +1,20 @@
 [
   {
-    "nombre": "Roberto",
+    "nombre": "Perro",
     "raza": "Enano",
     "nivel": 30
   },
+  {
+    "nombre": "Iker",
+    "raza": "Enano",
+    "nivel": 30
+  },
+  {
+    "nombre": "Josemi",
+    "raza": "Enano",
+    "nivel": 30
+  },
+
   {
     "nombre": "Roberto",
     "raza": "Humano",
