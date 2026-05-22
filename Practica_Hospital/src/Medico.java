@@ -11,7 +11,7 @@ public class Medico {
     private Area area;
 
     //contructores
-    public Medico (String d, String n, String s, Integer sB, Integer fI, Area a) {
+    public Medico(String d, String n, String s, Integer sB, Integer fI, Area a) {
         this.dni = d;
         this.nombre = n;
         this.sexo = s;
@@ -77,7 +77,7 @@ public class Medico {
     }
 
     //metodo antiguedad
-    public int getAniosAntiguedad(){
+    public int getAniosAntiguedad() {
         int antiguedad = 2025 - getFechaInicio();
         return antiguedad;
     }
@@ -89,22 +89,26 @@ public class Medico {
     }
 
     //metodo mayor de edad
-    public boolean esMayorDeEdad (int mayoriaDeEdad) {
+    public boolean esMayorDeEdad(int mayoriaDeEdad) {
         return mayoriaDeEdad >= 18;
     }
 
     //metodo aumento
-    public double proximoAumento (double porcentajeAumento, int aniosRequeridos) {
+    public double proximoAumento(double porcentajeAumento, int aniosRequeridos) {
         double resultado = this.sueldoBruto;
-        if (this.getAniosAntiguedad() >= aniosRequeridos){
-            resultado = sueldoBruto + (sueldoBruto * (porcentajeAumento/100));
+        if (this.getAniosAntiguedad() >= aniosRequeridos) {
+            resultado = sueldoBruto + (sueldoBruto * (porcentajeAumento / 100));
         }
         return resultado;
     }
 
     //metodo area
-    public Area cambiarArea(Area nuevaArea){
-
+    public Area cambiarArea(Area nuevaArea) {
+        return nuevaArea;
     }
 }
-}
+
+
+
+
+
