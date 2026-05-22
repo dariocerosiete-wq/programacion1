@@ -14,6 +14,7 @@ public class Area {
             this.planta = p;
             this.hospital = h;
             this.numMedicos = 0;
+            g
         }
 
         //metodos get

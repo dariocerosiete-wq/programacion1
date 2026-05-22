@@ -18,7 +18,7 @@ public class Medico {
         this.sueldoBruto = sB;
         this.fechaInicio = fI;
         this.area = a;
-    }
+    }g
 
     //metodos get
     public String getDni() {
