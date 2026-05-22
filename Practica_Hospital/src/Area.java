@@ -1,4 +1,5 @@
 public class Area {
+    public class Area {
         //atributos
         private String nombre;
         private Integer identificador;
@@ -62,3 +63,4 @@ public class Area {
             this.numMedicos ++;
         }
     }
+}
