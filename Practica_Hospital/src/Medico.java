@@ -103,8 +103,9 @@ import java.util.Scanner;
         }
 
         //metodo area
-        public Area cambiarArea(Area nuevaArea){
+        public Area cambiarArea(Area nuevaArea) {
 
         }
+
     }
-}
+

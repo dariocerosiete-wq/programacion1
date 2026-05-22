@@ -31,7 +31,7 @@ public class Hospital {
     }
 
     public ArrayList<Area> getAreas() {
-        return areas;
+        return lista;
     }
 
     //metodos set
@@ -48,6 +48,6 @@ public class Hospital {
     }
 
     public void setAreas(ArrayList<Area> lista) {
-        this.areas = lista;
+        this.lista = lista;
     }
 }
