@@ -6,14 +6,14 @@ public class Hospital {
     private String nombre;
     private String cif;
     private Direccion d;
-    private ArrayList<Area> lista;
+    private ArrayList<Area> areas;
 
     //contructores
     public Hospital (String n, String cif, Direccion d, ArrayList<Area> areas){
         this.nombre = n;
         this.cif = cif;
         this.d = d;
-        this.lista = new ArrayList<Area>();
+        this.areas = new ArrayList<Area>();
     }
 
 
@@ -31,7 +31,7 @@ public class Hospital {
     }
 
     public ArrayList<Area> getAreas() {
-        return lista;
+        return areas;
     }
 
     //metodos set
@@ -48,6 +48,6 @@ public class Hospital {
     }
 
     public void setAreas(ArrayList<Area> lista) {
-        this.lista = lista;
+        this.areas = areas;
     }
 }
